@@ -1,0 +1,56 @@
+# Build output
+build/
+out/
+cmake-build-*/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.suo
+*.ncb
+*.opensdf
+*.sdf
+*.aps
+*.user
+.vs/
+.vscode/
+
+# JUCE generated
+JuceLibraryCode/
+*Builds/
+
+# Compiled binaries
+*.obj
+*.lib
+*.dll
+*.exe
+*.pdb
+*.ilk
+*.exp
+*.pch
+*.idb
+
+# IDE / tooling
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Plugin binaries (kept under release repo, not source)
+*.vst3/
+*.vst3.zip
+
+# Local development
+analizzatore-audio.exe
+"Analizzatore Audio.exe"
+"Analizzatore Audio.vst3"
+
+# Misc
+*.log
+*.tmp
+*.bak
