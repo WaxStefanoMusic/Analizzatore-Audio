@@ -41,12 +41,15 @@ namespace
     {
         juce::URL url (AppInfo::latestReleaseApiUrl());
 
-        juce::URL::InputStreamOptions opts (juce::URL::ParameterHandling::inAddress);
-        opts = opts.withConnectionTimeoutMs (8000)
-                   .withHttpRequestCmd ("GET")
-                   .withExtraHeaders (
-                       juce::String ("User-Agent: AnalizzatoreAudio/") + AppInfo::kVersion + "\r\n"
-                     + "Accept: application/vnd.github+json");
+        // InputStreamOptions ha un membro const => operator= e' deleted.
+        // Costruzione + chain-building in un'unica espressione.
+        const auto opts = juce::URL::InputStreamOptions (
+                              juce::URL::ParameterHandling::inAddress)
+            .withConnectionTimeoutMs (8000)
+            .withHttpRequestCmd ("GET")
+            .withExtraHeaders (
+                juce::String ("User-Agent: AnalizzatoreAudio/") + AppInfo::kVersion + "\r\n"
+              + "Accept: application/vnd.github+json");
 
         auto stream = url.createInputStream (opts);
         if (stream == nullptr) return;
